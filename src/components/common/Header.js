@@ -1,9 +1,12 @@
-import React, { Component } from 'React';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import activitiLogo from '../../images/activiti-logo.png';
 
 class Header extends Component {
     render() {
+        const { FullName } = this.props;
+
         return (
         <div className="navbar navbar-fixed-top navbar-inverse" role="navigation" id="main-nav">
             <div className="fixed-container">
@@ -14,7 +17,7 @@ class Header extends Component {
                 </div>
                 <div className="pull-right">
                     <div className="dropdown btn-group btn-group-sm">
-                        <button type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown"> firstname-lastname
+                        <button type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown"> {FullName}
                             <span className="glyphicon glyphicon-chevron-down" style={{fontSize: "10px"}} aria-hidden="true"></span>
                         </button>
                         <ul className="dropdown-menu pull-right">
@@ -27,6 +30,10 @@ class Header extends Component {
         </div>
     );
     }
+}
+
+Header.propTypes = {
+    FullName : PropTypes.string
 }
 
 export default Header;

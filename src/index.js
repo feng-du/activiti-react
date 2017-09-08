@@ -5,7 +5,7 @@ import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import configureStore, { history } from './store/configureStore';
 import Root from './components/Root';
-import AuthApi from './api/AuthApi';
+import { isAuthenticated } from './auth/auth';
 import { AUTH_USER } from './actions/actionTypes';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -19,7 +19,7 @@ require('./favicon.ico'); // Tell webpack to load favicon.ico
 const store = configureStore();
 
 
-if (AuthApi.isAuthenticated()) {
+if (isAuthenticated()) {
   // we need to update application state
   store.dispatch({ type: AUTH_USER });
 }
