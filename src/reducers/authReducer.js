@@ -15,7 +15,6 @@ import {
         return { ...state, error: action.payload };
       case FETCH_ACCOUNT:
         return { ...state, user: action.payload };
-        
     }
   
     return state;

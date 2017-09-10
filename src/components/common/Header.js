@@ -5,7 +5,7 @@ import activitiLogo from '../../images/activiti-logo.png';
 
 class Header extends Component {
     render() {
-        const { FullName } = this.props;
+        const { name, signoutHandler } = this.props;
 
         return (
         <div className="navbar navbar-fixed-top navbar-inverse" role="navigation" id="main-nav">
@@ -17,11 +17,11 @@ class Header extends Component {
                 </div>
                 <div className="pull-right">
                     <div className="dropdown btn-group btn-group-sm">
-                        <button type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown"> {FullName}
+                        <button type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown"> {name}
                             <span className="glyphicon glyphicon-chevron-down" style={{fontSize: "10px"}} aria-hidden="true"></span>
                         </button>
                         <ul className="dropdown-menu pull-right">
-                            <li><a >Sign out</a></li>
+                            <li><a onClick={signoutHandler}>Sign out</a></li>
                         </ul>
                     </div>
 
@@ -33,7 +33,8 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-    FullName : PropTypes.string
-}
+    name : PropTypes.string,
+    signoutHandler: PropTypes.func,
+};
 
 export default Header;

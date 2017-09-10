@@ -1,4 +1,4 @@
-import { signin, getAccount } from '../auth/auth';
+import { signout, signin, getAccount } from '../auth/auth';
 import {
   AUTH_USER,
   UNAUTH_USER,
@@ -11,12 +11,11 @@ export function signinUser({ username, password }) {
   return function(dispatch) {
     // Submit username/password to the server
     signin(username, password)
-      .then(() => {
+      .then(response => {
         // If request is good...
         // - Update state to indicate user is authenticated
         dispatch({ type: AUTH_USER });
-        // - Save the JWT token
-        // localStorage.setItem('token', response.data.token);
+        dispatch({ type: FETCH_ACCOUNT, payload: response })
 
       })
       .catch((e) => {
@@ -36,9 +35,11 @@ export function authError(error) {
 }
 
 export function signoutUser() {
-  localStorage.removeItem('token');
-
-  return { type: UNAUTH_USER };
+  return dispatch => {
+    signout();
+    dispatch({ type: UNAUTH_USER });
+  }
+  
 }
 
 export function fetchAccount() {
@@ -46,6 +47,8 @@ export function fetchAccount() {
     getAccount()
       .then(response => {
         dispatch({type:FETCH_ACCOUNT, payload:response});
+      }).catch(r=> {
+        debugger
       });
   }
 }

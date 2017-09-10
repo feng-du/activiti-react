@@ -1,5 +1,5 @@
 export default {
-    AUTH_HOST: "http://wucc.wdqh.com:6789",
+    AUTH_HOST: "http://10.211.55.5/identity",
     params: {
         CLIENT_ID: "RBS",
         CLIENT_SECRET: "secret",

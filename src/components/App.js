@@ -7,6 +7,8 @@ import { Switch } from 'react-router-dom';
 import DashboardPage from './dashboard/DashboardPage';
 import LoginPage from './auth/LoginPage';
 
+import EditorPage from './editor/EditorPage';
+
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless
 // component at the top-level.
@@ -18,6 +20,8 @@ class App extends React.Component {
       <div>
         <Switch>
           <Route path="/login" component={LoginPage} />
+          <AuthRoute path="/dashboard" component={DashboardPage} />
+          <AuthRoute path="/editor" component={EditorPage} />
           <AuthRoute path="/" component={DashboardPage} />
         </Switch>
       </div>
