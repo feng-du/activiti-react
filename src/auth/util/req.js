@@ -36,11 +36,13 @@ function request(url, method, reqd) {
 
     const reqFunc = () => {
         const { access_token } = getToken();  
-         if(method == GET){
-             config.params.access_token = access_token;
-         } else {
-            config.headers = { Authorization: `Bearer ${access_token}` };
-         }
+        //  if(method == GET){
+        //      config.params.access_token = access_token;
+        //  } else {
+        //     config.headers = { Authorization: `Bearer ${access_token}` };
+        //  }
+
+        config.headers = { Authorization: `Bearer ${access_token}` };
 
         return axios.request(config);
     };

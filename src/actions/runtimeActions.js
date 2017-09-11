@@ -20,17 +20,17 @@ export const getAppDefinition = () => dispatch => {
 function transformAppsResponse(response) {
   const datas = response.data.data;
   
-  var urls = {
+  let urls = {
       editor: '/editor/',
       workflow: '/workflow/'
   };
 
 
-  var defaultApps = [];
-  var customApps = [];
-  for (var i = 0; i < datas.length; i++) {
+  let defaultApps = [];
+  let customApps = [];
+  for (let i = 0; i < datas.length; i++) {
 
-      var app = datas[i];
+      let app = datas[i];
       if (app.defaultAppId !== undefined && app.defaultAppId !== null) {
 
           // Default app

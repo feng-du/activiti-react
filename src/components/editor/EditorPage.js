@@ -38,6 +38,8 @@ class EditorPage extends React.Component {
                         <AuthRoute path="/editor/processes" component={ProcessPage} />
                         <AuthRoute path="/editor/forms" component={FormPage} />
                         <AuthRoute path="/editor/apps" component={AppPage} />
+
+                        <AuthRoute path="/editor" component={ProcessPage} />
                     </Switch>
                 </div>
             </div>
