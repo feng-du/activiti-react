@@ -17,3 +17,5 @@ export const GET_APPDEFINITION = 'get_appdefinition';
 
 
 export const GET_MODELS = 'get_models';
+
+export const GET_STENCIL_SET_FOR_EDITOR = 'get_stencil_set_for_editor';

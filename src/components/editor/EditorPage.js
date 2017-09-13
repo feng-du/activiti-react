@@ -21,6 +21,7 @@ import 'bootstrap/dist/js/bootstrap';
 
 import Navbar from './common/Navbar';
 import ProcessPage from './processes/ProcessPage';
+import EditProcessPage from './processes/editor-app/EditProcessPage';
 import FormPage from './forms/FormPage';
 import AppPage from './apps/AppPage';
 
@@ -35,6 +36,7 @@ class EditorPage extends React.Component {
                 <Navbar  name= { user.name } signoutHandler={signoutUser}/>
                 <div id="main" className="wrapper full clearfix" style={{height: "100vh"}}>
                     <Switch>
+                        <AuthRoute path="/editor/processes/:processId" component={EditProcessPage} />
                         <AuthRoute path="/editor/processes" component={ProcessPage} />
                         <AuthRoute path="/editor/forms" component={FormPage} />
                         <AuthRoute path="/editor/apps" component={AppPage} />

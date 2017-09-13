@@ -70,6 +70,7 @@ function transformAppsResponse(response) {
 
           // Custom app
           //app.icon = 'glyphicon ' + app.icon;
+          app.id = app.deploymentId;
           app.icon = 'icon icon-choice';
           app.theme = 'theme-1';
           app.fixedBaseUrl = '/workflow/#/apps/' + app.deploymentKey + '/';

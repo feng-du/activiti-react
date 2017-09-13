@@ -13,7 +13,7 @@ const LandingItem = (props) => {
     }
 
     return (
-        <div key={app.id} id={app.id} className="app-wrapper">
+        <div id={app.id} className="app-wrapper">
             <div className={`app ${app.theme}`}>
                 <a href={app.fixedUrl}>
                     <div className="app-content">
