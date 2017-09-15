@@ -15,7 +15,9 @@ import '../../libs/editor/editor-app/css/style.css';
 import '../../libs/editor/styles/style-editor.css';
 
 
+import '../../libs/jquery-ui-1.10.3.custom.min';
 import 'bootstrap/dist/js/bootstrap';
+
 
 
 

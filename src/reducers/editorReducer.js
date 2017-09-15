@@ -1,5 +1,6 @@
 import {
     GET_MODELS,
+    GET_MODEL,
     GET_STENCIL_SET_FOR_EDITOR,
     EDITOR_PAGE_CHANGED
 } from '../actions/actionTypes';
@@ -12,6 +13,8 @@ export default function(state = initialState.editor, action) {
         if(!action.models)
             return state;
         return { ...state, models: action.models };
+    case GET_MODEL:
+        return { ...state, modelData: action.ModelData };
     case GET_STENCIL_SET_FOR_EDITOR:
         return { ...state, stencils: action.stencils };
     case EDITOR_PAGE_CHANGED:

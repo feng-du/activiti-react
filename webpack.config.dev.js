@@ -3,6 +3,8 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import path from 'path';
 
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+
 export default {
   resolve: {
     extensions: ['*', '.js', '.jsx', '.json']
@@ -47,7 +49,10 @@ export default {
         context: '/',
         postcss: () => [autoprefixer],
       }
-    })
+    }),
+    new CopyWebpackPlugin([
+      { from: 'src/libs/editor/editor-app/stencilsets', to: 'editor-app/stencilsets' }
+    ])
   ],
   module: {
     rules: [
@@ -59,7 +64,8 @@ export default {
       {test: /\.(jpe?g|png|gif)$/i, loader: 'file-loader?name=[name].[ext]'},
       {test: /\.ico$/, loader: 'file-loader?name=[name].[ext]'},
       {test: /(\.css|\.scss|\.sass)$/, loaders: ['style-loader', 'css-loader?sourceMap', 'postcss-loader', 'sass-loader?sourceMap']},
-      {test: require.resolve('bootstrap/dist/js/bootstrap'),loaders: 'imports-loader?jQuery=jquery'}
+      {test: require.resolve('bootstrap/dist/js/bootstrap'),loaders: 'imports-loader?jQuery=jquery'},
+      {test: require.resolve('./src/libs/jquery-ui-1.10.3.custom.min'),loaders: 'imports-loader?jQuery=jquery'}
     ]
   }
 };

@@ -8,3 +8,9 @@ export function getModels(filter, modelType, sort) {
 
     return req(url).get();
 }
+
+export function getModel(modelId) {
+    let url = `${host}/app/rest/models/${modelId}/editor/json?version=${Date.now()}`;
+
+    return req(url).get();
+}
